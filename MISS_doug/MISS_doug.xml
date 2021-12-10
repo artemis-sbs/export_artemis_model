@@ -1,0 +1,47 @@
+<mission_data version="1.0" background_id_arme="f6106c76-b2da-402e-8417-325260429d93" playerShipNames_arme="Artemis\Intrepid\Aegis\Horatio\Excalibur\Hera\Ceres\Diana">
+  <start id_arme="f6106c76-b2da-402e-8417-325260429d93">
+    <create type="player" x="66272.0" y="0.0" z="21961.0" angle="180" name="Artemis" />
+
+    <create type="genericMesh" artScale="10" x="61200.0" y="5.0" z="21911.0" name="Cylinder" meshFileName="dat\generics-Cylinder.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="62000.0" y="5.0" z="21911.0" name="dodecahedron" meshFileName="dat\generics-dodecahedron.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="63000.0" y="5.0" z="21911.0" name="flat-disc" meshFileName="dat\generics-flat-disc.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="64000.0" y="5.0" z="21911.0" name="flat-hexagon" meshFileName="dat\generics-flat-hexagon.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="65000.0" y="5.0" z="21911.0" name="icosahedron" meshFileName="dat\generics-icosahedron.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="66000.0" y="5.0" z="21911.0" name="longcone" meshFileName="dat\generics-longcone.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="67000.0" y="5.0" z="21911.0" name="octohedron" meshFileName="dat\generics-octohedron.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="68000.0" y="5.0" z="21911.0" name="rect" meshFileName="dat\generics-rect.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="69000.0" y="5.0" z="21911.0" name="sphere" meshFileName="dat\generics-sphere.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="70000.0" y="5.0" z="21911.0" name="tetrahedron" meshFileName="dat\generics-tetrahedron.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+    <create type="genericMesh" artScale="10" x="71000.0" y="5.0" z="21911.0" name="torus" meshFileName="dat\generics-torus.dxs" textureFileName="dat\Asteroid_8_AO.png"/>
+
+    <set_object_property name="Cylinder" property="artScale" value="3" />
+    <set_object_property name="dodecahedron" property="artScale" value="3" />
+    <set_object_property name="flat-disc" property="artScale" value="3" />
+    <set_object_property name="flat-hexagon" property="artScale" value="3" />
+    <set_object_property name="icosahedron" property="artScale" value="3" />
+    <set_object_property name="longcone" property="artScale" value="3" />
+    <set_object_property name="octohedron" property="artScale" value="3" />
+    <set_object_property name="rect" property="artScale" value="3" />
+    <set_object_property name="sphere" property="artScale" value="3" />
+    <set_object_property name="tetrahedron" property="artScale" value="3" />
+    <set_object_property name="torus" property="artScale" value="3" />
+    
+
+
+
+
+    <set_difficulty_level value="5" />
+    <set_skybox_index index="10" />
+    <set_object_property property="nebulaIsOpaque" value="0" />
+    <set_object_property property="sensorSetting" value="1" />
+    <set_object_property property="nonPlayerSpeed" value="100" />
+    <set_object_property property="nonPlayerShield" value="100" />
+    <set_object_property property="nonPlayerWeapon" value="100" />
+    <set_object_property property="playerWeapon" value="100" />
+    <set_object_property property="playerShields" value="100" />
+    <big_message title="Unnamed mission" subtitle1="by Unknown Author" subtitle2="adventure for Artemis 2.6" />
+    <set_timer name="start_mission_timer_1" seconds="10" />
+    <set_variable name="chapter_1" value="1" />
+    
+  </start>
+</mission_data>

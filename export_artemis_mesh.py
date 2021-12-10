@@ -43,26 +43,34 @@ class ExportArtemisDxs(Operator, ExportHelper):
     # )
 
     def execute(self, context):
-        return self.write_file(context, self.filepath, None)
+        objects = bpy.context.selected_objects
+        if objects == []:
+            objects = bpy.context.scene.objects
 
-    def write_file(self, context, filepath, options):
-        f = open(filepath, 'w', encoding='utf-8')
-        self.write_scene(context, f, options)
-        f.close()
+        for object in  objects:
+            filename = self.filepath
+            filename = filename.replace(".dxs", f"-{object.name}.dxs")
+            self.write_file(object, filename, None)
         return {'FINISHED'}
 
-    def write_scene(self, context, file, options):
+    def write_file(self, object, filepath, options):
+        f = open(filepath, 'w', encoding='utf-8')
+        self.write_scene(object, f, options)
+        f.close()
+
+
+    def write_scene(self, object, file, options):
         file.write('<scene version="1.6">')
         # not required
         # self.write_world(context, file, options)
-        self.write_materials(context, file, options)
-        self.write_primitives(context, file, options)
+        self.write_materials(object, file, options)
+        self.write_primitives(object, file, options)
         # not required
         # self.write_skeletons(context, file, options)
         # self.write_lights(context, file, options)
         file.write('</scene>')
 
-    def write_world(self, context, file, options):
+    def write_world(self, object, file, options):
         self.write(file, 1, 
 """
     <settings name="new scene" author="" comments="" shadowOpacity="75">
@@ -70,7 +78,7 @@ class ExportArtemisDxs(Operator, ExportHelper):
     </settings>
 """)
 
-    def write_materials(self, context, file, options):
+    def write_materials(self, object, file, options):
 
         file.write(
 """ <materials highestID="16">
@@ -88,10 +96,9 @@ class ExportArtemisDxs(Operator, ExportHelper):
 </materials>
 """)
 
-    def write_primitives(self, context, file, options):
+    def write_primitives(self, object, file, options):
         self.write(file, 1, '<primitives highestID="2">')
         # for each object
-        object = bpy.context.object
         self.write_primitive(object, file, options)
         self.write(file, 1, '</primitives>')
 
@@ -157,10 +164,10 @@ class ExportArtemisDxs(Operator, ExportHelper):
 
     
 
-    def write_skeletons(self, context, file, options):
+    def write_skeletons(self, object, file, options):
         self.write(file, 1, '<skeletons />')
 
-    def write_lights(self, context, file, options):
+    def write_lights(self, object, file, options):
         self.write(file, 1, '<lights highestID="2" />')
     
     def write(self, file, indent, lines):
